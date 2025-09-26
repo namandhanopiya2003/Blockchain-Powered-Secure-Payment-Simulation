@@ -1,0 +1,1 @@
+The venv folder holds a separate environment that keeps this project’s packages organized and separate from other projects.
