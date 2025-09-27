@@ -1,0 +1,1 @@
+The data/ folder stores the generated dataset used for training the threat model, the trained model itself, and the output files from analysis.
