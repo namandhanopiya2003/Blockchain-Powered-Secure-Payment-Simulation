@@ -36,47 +36,47 @@
 
 ## 📁 PROJECT FOLDER STRUCTURE ==>
 
-main_folder/
-|
-├─ build/
-│  └─ contracts
-│     ├─ Migrations.json
-│     └─ Payroll.json
-|
-├─ contracts/
-│  └─ Payroll.sol
-|
-├─ data/
-│  ├─ outputs/
-│  |  ├─ confidence_over_time
-│  |  ├─ payments_over_time
-│  |  └─ scan_time_vs_attacks
-|  |
-│  ├─ ml_dataset.json
-│  └─ threat_model.pkl
-|
-├─ migrations/
-│  ├─ 1_initial_migration.js
-│  └─ 2_deploy_contracts.js
-|
-├─ src/
-│  ├─ analyze_dataset.py
-│  ├─ attack_sim.py
-│  ├─ blockchain.py
-│  ├─ encryption.py
-│  ├─ generate_json_dataset.py
-│  ├─ logger.py 
-│  ├─ main.py
-│  ├─ ml_predictor.py
-│  ├─ train_threat_model.py
-│  └─ visualizer.py 
-|
-├─ venv/
-|
-├─ requirements.txt
-|
-├─ truffle-config.js
-|
+main_folder/<br>
+|<br>
+├─ build/<br>
+│  └─ contracts<br>
+│     ├─ Migrations.json<br>
+│     └─ Payroll.json<br>
+|<br>
+├─ contracts/<br>
+│  └─ Payroll.sol<br>
+|<br>
+├─ data/<br>
+│  ├─ outputs/<br>
+│  |  ├─ confidence_over_time<br>
+│  |  ├─ payments_over_time<br>
+│  |  └─ scan_time_vs_attacks<br>
+|  |<br>
+│  ├─ ml_dataset.json<br>
+│  └─ threat_model.pkl<br>
+|<br>
+├─ migrations/<br>
+│  ├─ 1_initial_migration.js<br>
+│  └─ 2_deploy_contracts.js<br>
+|<br>
+├─ src/<br>
+│  ├─ analyze_dataset.py<br>
+│  ├─ attack_sim.py<br>
+│  ├─ blockchain.py<br>
+│  ├─ encryption.py<br>
+│  ├─ generate_json_dataset.py<br>
+│  ├─ logger.py<br>
+│  ├─ main.py<br>
+│  ├─ ml_predictor.py<br>
+│  ├─ train_threat_model.py<br>
+│  └─ visualizer.py<br>
+|<br>
+├─ venv/<br>
+|<br>
+├─ requirements.txt<br>
+|<br>
+├─ truffle-config.js<br>
+|<br>
 └─ README.md
 
 ---
@@ -146,10 +146,10 @@ python analyze_dataset.py                    << TO ANALYZE THE DATASET GENERATED
 
 ## ✨ SAMPLE OUTPUT ==>
 
-📑 Transactions Logged → Blockchain + JSON logs
-🔐 Data Encrypted → Secure before storage
-⚔ Attack Simulation → Fake/fraudulent entries injected
-🤖 ML Threat Predictor → Adjusts scan intervals
+📑 Transactions Logged → Blockchain + JSON logs<br>
+🔐 Data Encrypted → Secure before storage<br>
+⚔ Attack Simulation → Fake/fraudulent entries injected<br>
+🤖 ML Threat Predictor → Adjusts scan intervals<br>
 📊 Analytics → Plots for payments, attacks, and confidence generated in /data/outputs
 
 ---
