@@ -1,0 +1,8 @@
+web3
+cryptography
+pycryptodome
+matplotlib
+seaborn
+pandas
+scikit-learn
+joblib
