@@ -4,6 +4,7 @@ from datetime import datetime
 from web3 import Web3
 import numpy as np
 
+# Set up paths to folders
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
@@ -14,7 +15,7 @@ OUTPUTS_DIR.mkdir(exist_ok=True)
 
 SCAN_LOG = OUTPUTS_DIR / "scan_log.json"
 
-
+# It converts numpy and datetime objects into normal Python types
 class NpEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, (np.integer,)):
@@ -27,7 +28,7 @@ class NpEncoder(json.JSONEncoder):
             return obj.isoformat()
         return super(NpEncoder, self).default(obj)
 
-
+# It reads existing JSON array from file and adds a new item, then saves it back
 def append_json(path, item):
     arr = []
     if path.exists():
@@ -40,7 +41,7 @@ def append_json(path, item):
 
 
 def log_transaction(employee_id, timestamp, amount, encrypted_payload, tx_hash=None, channel="real"):
-
+# Prepares transaction log entry and saves it
     if hasattr(tx_hash, "hex"):
         tx_hash_str = tx_hash.hex()
     else:
@@ -54,11 +55,11 @@ def log_transaction(employee_id, timestamp, amount, encrypted_payload, tx_hash=N
         "tx_hash": tx_hash_str,
         "channel": str(channel)
     }
-    append_json(TRANSACTIONS_LOG, entry)
+    append_json(TRANSACTIONS_LOG, entry)                     # Save the transaction log entry
 
 
 def log_scan_event(step, confidence, scan_time, attacks_detected, attacks_cumulative=None):
-
+# Prepares scan event log entry and saves it
     entry = {
         "step": int(step),
         "confidence": float(confidence),
@@ -67,9 +68,9 @@ def log_scan_event(step, confidence, scan_time, attacks_detected, attacks_cumula
         "attacks_cumulative": int(attacks_cumulative) if attacks_cumulative is not None else None,
         "timestamp": datetime.utcnow().isoformat() + "Z"
     }
-    append_json(SCAN_LOG, entry)
+    append_json(SCAN_LOG, entry)                             # Saves the scan event log entry
 
-
+# It deletes log files if they exist to start fresh
 def clear_logs():
     if TRANSACTIONS_LOG.exists():
         TRANSACTIONS_LOG.unlink()
@@ -77,3 +78,4 @@ def clear_logs():
         ATTACKS_LOG.unlink()
     if SCAN_LOG.exists():
         SCAN_LOG.unlink()
+
