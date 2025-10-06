@@ -3,28 +3,37 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Set the folders where output images will be saved
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 OUTPUT_DIR = DATA_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
+# Sets the paths to the log files
 TRANSACTIONS_LOG = DATA_DIR / "transactions.json"
 ATTACKS_LOG = DATA_DIR / "attacks.json"
 SCAN_LOG = OUTPUT_DIR / "scan_log.json"
 
+# It creates and saves three charts using the log data:
+# Visual 1: Payments over time
+# Visual 2: Confidence over time
+# Visual 3: Scan time vs Attacks
 def make_plots(num_employees):
 
+    # Try to read the transaction log
     try:
         with open(TRANSACTIONS_LOG, "r") as f:
             transactions = json.load(f)
     except:
         transactions = []
 
+    # Try to read the attacks log
     try:
         with open(ATTACKS_LOG, "r") as f:
             attacks = json.load(f)
     except:
         attacks = []
 
+    # Try to read the scan log
     try:
         with open(SCAN_LOG, "r") as f:
             scans = json.load(f)
@@ -82,5 +91,7 @@ def make_plots(num_employees):
         plt.savefig(OUTPUT_DIR / "scan_time_vs_attacks.png")
         plt.close()
 
+    # Prints message saying the plots were saved
     print(f"__________________________________________________________________________________")
     print(f"[visualizer]==> Plots saved in {OUTPUT_DIR}")
+
